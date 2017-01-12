@@ -12,7 +12,7 @@ build:
     name: maven:3.3-jdk-8-onbuild
     onbuild:
       - mvn package
-  publish_artifact: dist/
+  publish_artifact: target/
   lint: true
 bake:
   strategy: docker
