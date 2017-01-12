@@ -19,7 +19,7 @@ bake:
   script: Dockerfile
   repositories:
     - name: google
-      prefix: gcr.io/qubeship
+      prefix: gcr.io/qubeship-partners
       type: gcr
 test:
   skip: true
