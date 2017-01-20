@@ -27,10 +27,10 @@ test:
     provider: qubeship-sg
 deployment:
   continuous_deployment: true
-  service_name: java-tester1
+  service_name: java-tester-container
   environments:
     prod:
       - type: qubeship_managed
-        id: 5878416dcbff270042ea1b46
+        id: 5881660e594200008b0c6ce2
         template_id: qube_external_app_v1
         srcRepo: google
