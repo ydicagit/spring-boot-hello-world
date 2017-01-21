@@ -1,4 +1,4 @@
-name: java-tester
+name: spring-boot-tester
 language: java
 pipeline: build_bake_test_deployment:v0.1
 security:
@@ -27,10 +27,10 @@ test:
     provider: qubeship-sg
 deployment:
   continuous_deployment: true
-  service_name: java-tester-container
+  service_name: spring-boot-tester-container
   environments:
     prod:
       - type: qubeship_managed
-        id: 58818013c5f2250078fa2fba
+        id: 58833de11d7801000664c3cd
         template_id: qube_external_app_v1
         srcRepo: google
