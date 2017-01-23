@@ -26,7 +26,6 @@ test:
   functional:
     provider: qubeship-sg
 deployment:
-  #test by mudita
   skip: true
   continuous_deployment: true
   service_name: mudita-testing1
