@@ -1,5 +1,5 @@
-name: muditaTesting1
-language: python
+name: muditaTesting2
+language: java
 pipeline: build_bake_test_deployment:v0.1
 security:
   keys_loc: "conf/"
@@ -9,11 +9,10 @@ notification:
   channel: qubeship
 build:
   image:
-    name: python:3-onbuild
+    name: maven:3.3-jdk-8-onbuild
     onbuild:
-      - pip install tox wheel && pip list && tox && python setup.py bdist_wheel
-     
-  publish_artifact: dist/
+      - mvn package
+  publish_artifact: target/
   lint: true
 bake:
   strategy: docker
@@ -29,7 +28,7 @@ test:
 deployment:
   skip: true
   continuous_deployment: true
-  service_name: mudita-testing1
+  service_name: mudita-testing2
   environments:
     prod:
       - type: qubeship_managed
