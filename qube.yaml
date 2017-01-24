@@ -1,4 +1,4 @@
-name: muditaTesting2
+name: spring_tester_1
 language: java
 pipeline: build_bake_test_deployment:v0.1
 security:
@@ -8,6 +8,7 @@ notification:
   domain: 
   channel: qubeship
 build:
+  skip: false
   image:
     name: maven:3.3-jdk-8-onbuild
     onbuild:
@@ -15,13 +16,13 @@ build:
   publish_artifact: target/
   lint: true
 bake:
+  skip: false
   strategy: docker
   script: Dockerfile
   repositories:
     - name: google
       prefix: gcr.io/qubeship-partners
       type: gcr
-      credId: qubeship-partners
 test:
   skip: true
   functional:
@@ -29,7 +30,7 @@ test:
 deployment:
   skip: false
   continuous_deployment: true
-  service_name: mudita-testing2
+  service_name: spring-test-123
   environments:
     prod:
       - type: qubeship_managed
