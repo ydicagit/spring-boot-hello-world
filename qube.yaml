@@ -32,6 +32,6 @@ deployment:
   environments:
     prod:
       - type: qubeship_managed
-        id: 
+        id: 58869c941d7801000664c3ce
         template_id: qube_external_app_v1
         srcRepo: google
