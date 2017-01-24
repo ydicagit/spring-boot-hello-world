@@ -21,6 +21,7 @@ bake:
     - name: google
       prefix: gcr.io/qubeship-partners
       type: gcr
+      credId: qubeship-partners
 test:
   skip: true
   functional:
