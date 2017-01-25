@@ -1,0 +1,39 @@
+name: qa_java_prj2
+language: java
+pipeline: build_bake_test_deployment:v0.1
+security:
+  keys_loc: "conf/"
+notification:
+  type: slack
+  domain: 
+  channel: qubeship
+build:
+  skip: false
+  image:
+    name: maven:3.3-jdk-8-onbuild
+    onbuild:
+      - mvn package
+  publish_artifact: target/
+  lint: true
+bake:
+  skip: false
+  strategy: docker
+  script: Dockerfile
+  repositories:
+    - name: google
+      prefix: gcr.io/qubeship-partners
+      type: gcr
+test:
+  skip: true
+  functional:
+    provider: qubeship-sg
+deployment:
+  skip: true
+  continuous_deployment: true
+  service_name: qajavaprjcontainer2
+  environments:
+    prod:
+      - type: qubeship_managed
+        id: 
+        template_id: qube_external_app_v1
+        srcRepo: google
